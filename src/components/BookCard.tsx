@@ -2,6 +2,7 @@
 import { BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 interface Book {
   id: string;
@@ -18,7 +19,7 @@ interface BookCardProps {
 
 const BookCard = ({ book }: BookCardProps) => {
   return (
-    <Card className="literary-card group h-full flex flex-col hover:translate-y-[-5px]">
+    <Card className="literary-card group h-full flex flex-col hover:translate-y-[-5px] transition-all duration-300">
       <div className="relative pt-[70%] overflow-hidden bg-gray-100">
         <img 
           src={book.cover} 
@@ -39,10 +40,12 @@ const BookCard = ({ book }: BookCardProps) => {
       <CardFooter className="pt-0 pb-4">
         <Button 
           className="w-full gap-2 literary-button"
-          onClick={() => console.log(`Exploring book: ${book.title}`)}
+          asChild
         >
-          <BookOpen className="h-4 w-4" />
-          Explore
+          <Link to={`/story/${book.id}`}>
+            <BookOpen className="h-4 w-4" />
+            Explore
+          </Link>
         </Button>
       </CardFooter>
     </Card>

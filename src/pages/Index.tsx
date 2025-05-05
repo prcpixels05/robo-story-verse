@@ -8,6 +8,12 @@ import { Book, BookOpen, BookText, Search } from "lucide-react";
 import AuthForm from "@/components/AuthForm";
 import Dashboard from "@/components/Dashboard";
 import BookCard from "@/components/BookCard";
+import Hero from "@/components/Hero";
+import FeaturesSection from "@/components/FeaturesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import FeaturedBooksSection from "@/components/FeaturedBooksSection";
+import CallToAction from "@/components/CallToAction";
+import Footer from "@/components/Footer";
 
 // Mock data - will be replaced with API data later
 const featuredBooks = [
@@ -64,18 +70,29 @@ const Index = () => {
 
   if (!isLoggedIn) {
     return (
-      <div className="min-h-screen flex flex-col literary-gradient">
-        <div className="flex-1 flex flex-col items-center justify-center p-6">
-          <div className="w-full max-w-md">
-            <div className="text-center mb-10">
-              <h1 className="text-4xl font-bold mb-2">Robo Story Verse</h1>
-              <p className="text-lg opacity-80">
-                Explore literature through the voice of our AI narrator
-              </p>
+      <div className="min-h-screen flex flex-col">
+        <div className="flex-1">
+          <Hero />
+          <FeaturesSection />
+          <FeaturedBooksSection />
+          <TestimonialsSection />
+          <CallToAction />
+          
+          {/* Login Form */}
+          <section className="py-16 bg-literary-light">
+            <div className="container mx-auto px-4">
+              <div className="max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <div className="text-center mb-6">
+                  <h2 className="text-2xl font-bold text-literary-primary">Join Our Community</h2>
+                  <p className="text-gray-600">Sign in to start your literary journey</p>
+                </div>
+                <AuthForm onLogin={handleLogin} />
+              </div>
             </div>
-            <AuthForm onLogin={handleLogin} />
-          </div>
+          </section>
         </div>
+        
+        <Footer />
       </div>
     );
   }
@@ -151,12 +168,7 @@ const Index = () => {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-literary-dark text-white py-8 px-4">
-        <div className="container mx-auto">
-          <p className="text-center">© 2025 Robo Story Verse. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
