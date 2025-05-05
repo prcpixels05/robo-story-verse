@@ -14,8 +14,9 @@ const CallToAction = () => {
           </p>
           <Button 
             className="bg-white text-literary-primary hover:bg-literary-accent hover:text-literary-primary px-8 py-3 rounded-lg text-lg font-medium transition-all duration-300"
+            asChild
           >
-            Get Started For Free
+            <Link to="/signup">Get Started For Free</Link>
           </Button>
         </div>
       </div>

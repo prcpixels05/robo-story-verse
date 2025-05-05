@@ -13,19 +13,19 @@ const testimonials = [
     quote: "The AI narration brings classic novels to life in a way I've never experienced before. It's like having a personal storyteller!",
     name: "Sarah Johnson",
     title: "Literature Teacher",
-    image: "/images/testimonial-1.jpg"
+    image: "/placeholder.svg"
   },
   {
     quote: "I've rediscovered my love for reading through this platform. The insights and analysis have deepened my appreciation for great works.",
     name: "Michael Chen",
     title: "Book Enthusiast",
-    image: "/images/testimonial-2.jpg"
+    image: "/placeholder.svg"
   },
   {
     quote: "As someone who struggles with reading comprehension, the AI narration and story breakdowns have been incredibly helpful for my studies.",
     name: "Emily Rodriguez",
     title: "Student",
-    image: "/images/testimonial-3.jpg"
+    image: "/placeholder.svg"
   }
 ];
 

@@ -25,13 +25,17 @@ const Hero = () => {
               Discover insights, analysis, and the beauty of storytelling in a whole new way.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button className="bg-literary-primary hover:bg-literary-secondary text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2">
-                <BookOpen className="h-5 w-5" />
-                Start Reading
+              <Button className="bg-literary-primary hover:bg-literary-secondary text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2" asChild>
+                <Link to="/signup">
+                  <BookOpen className="h-5 w-5" />
+                  Start Reading
+                </Link>
               </Button>
-              <Button variant="outline" className="border-literary-primary text-literary-primary hover:bg-literary-primary hover:text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2">
-                <Headphones className="h-5 w-5" />
-                Listen Now
+              <Button variant="outline" className="border-literary-primary text-literary-primary hover:bg-literary-primary hover:text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2" asChild>
+                <Link to="/login">
+                  <Headphones className="h-5 w-5" />
+                  Listen Now
+                </Link>
               </Button>
             </div>
           </div>
@@ -40,7 +44,7 @@ const Hero = () => {
           <div className="order-1 lg:order-2 animate-fade-in">
             <div className="relative">
               <img 
-                src="/images/robot-narrator.png" 
+                src="/placeholder.svg" 
                 alt="AI Robot Narrator" 
                 className="w-full h-auto rounded-lg shadow-2xl object-cover"
               />

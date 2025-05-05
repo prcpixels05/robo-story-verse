@@ -1,6 +1,10 @@
 
 # This file ensures the images directory is created
-# Add your images to this directory, such as:
-# - robot-narrator.png
-# - book-1.jpg, book-2.jpg, book-3.jpg
-# - testimonial-1.jpg, testimonial-2.jpg, testimonial-3.jpg
+# Images included:
+# - robot-narrator.png - AI Storytelling Robot 
+# - book-1.jpg - Pride and Prejudice cover
+# - book-2.jpg - The Great Gatsby cover
+# - book-3.jpg - To Kill a Mockingbird cover
+# - testimonial-1.jpg - Sarah Johnson photo
+# - testimonial-2.jpg - Michael Chen photo
+# - testimonial-3.jpg - Emily Rodriguez photo
