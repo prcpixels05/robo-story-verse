@@ -28,7 +28,7 @@ const Signup = () => {
         <div className="text-center mb-8">
           <Link to="/" className="flex items-center justify-center gap-2">
             <BookOpen className="h-10 w-10 text-literary-primary" />
-            <h1 className="text-3xl font-bold text-literary-primary">Robo Story Verse</h1>
+            <h1 className="text-3xl font-bold text-literary-primary">Stobo.ai</h1>
           </Link>
           <p className="text-gray-600 mt-2">Create your account to start your literary journey</p>
         </div>
