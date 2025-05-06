@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
 
 interface AuthFormProps {
   onLogin?: (email: string, password: string) => void;
@@ -20,10 +21,13 @@ const AuthForm = ({ onLogin, onSignup, isSignUp = false }: AuthFormProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Accept any email and password
     if (isSignUp && onSignup) {
       onSignup(email, password, name);
+      toast.success("Account created successfully!");
     } else if (onLogin) {
       onLogin(email, password);
+      toast.success("Logged in successfully!");
     }
     
     // Redirect to dashboard after form submission

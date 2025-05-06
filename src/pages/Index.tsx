@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Book, BookOpen, BookText, Search } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { toast } from "sonner";
 
 // Components
 import AuthForm from "@/components/AuthForm";
@@ -64,9 +65,10 @@ const Index = () => {
     // In a real app, this would trigger a search API call
   };
 
-  // Mock login function
+  // Mock login function that accepts any email/password
   const handleLogin = (email: string, password: string) => {
     console.log("Login attempt:", email, password);
+    toast.success("Login successful!");
     navigate("/dashboard");
   };
 
@@ -85,9 +87,17 @@ const Index = () => {
             <div className="max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg">
               <div className="text-center mb-6">
                 <h2 className="text-2xl font-bold text-literary-primary">Join Our Community</h2>
-                <p className="text-gray-600">Sign in to start your literary journey</p>
+                <p className="text-gray-600">Sign in with any email and password to start your literary journey</p>
               </div>
               <AuthForm onLogin={handleLogin} />
+              <div className="text-center mt-6">
+                <p className="text-gray-600">
+                  Don't have an account?{" "}
+                  <Link to="/signup" className="text-literary-primary hover:underline">
+                    Sign up
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
         </section>
