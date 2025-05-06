@@ -22,7 +22,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <section className="flex flex-col md:flex-row items-center md:items-start justify-between bg-white rounded-xl p-6 shadow-md my-6 animate-fade-in">
+    <section className="flex flex-col md:flex-row items-center md:items-start justify-between bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md my-6 animate-fade-in">
       <div className="flex items-center mb-4 md:mb-0">
         <Avatar className="h-14 w-14 mr-4 border-2 border-literary-accent">
           <AvatarImage src="/placeholder.svg" alt={userName} />
@@ -35,19 +35,19 @@ const Dashboard = () => {
           <h2 className="text-2xl font-semibold">
             {greeting}, <span className="text-literary-primary">{userName}</span>!
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 dark:text-gray-300">
             Continue your literary journey...
           </p>
         </div>
       </div>
       
       <div className="flex flex-col items-end">
-        <div className="bg-gray-100 px-4 py-2 rounded-lg">
-          <p className="text-sm font-medium text-gray-700">Currently Reading</p>
+        <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-lg">
+          <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Currently Reading</p>
           <p className="text-literary-primary font-semibold">
             Alice's Adventures in Wonderland
           </p>
-          <p className="text-xs text-gray-500">Chapter 3 • 35% complete</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">Chapter 3 • 35% complete</p>
         </div>
       </div>
     </section>

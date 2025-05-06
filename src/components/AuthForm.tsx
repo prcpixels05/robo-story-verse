@@ -12,6 +12,10 @@ interface AuthFormProps {
   isSignUp?: boolean;
 }
 
+// Admin credentials - in a real app these would be stored securely on the server
+const ADMIN_EMAIL = "admin@stobo.ai";
+const ADMIN_PASSWORD = "admin123";
+
 const AuthForm = ({ onLogin, onSignup, isSignUp = false }: AuthFormProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +25,15 @@ const AuthForm = ({ onLogin, onSignup, isSignUp = false }: AuthFormProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Accept any email and password
+    // Check for admin credentials
+    if (!isSignUp && email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+      toast.success("Admin logged in successfully!");
+      // In a real app, you'd set some admin state/context here
+      navigate("/dashboard");
+      return;
+    }
+    
+    // Regular user authentication - accept any email and password
     if (isSignUp && onSignup) {
       onSignup(email, password, name);
       toast.success("Account created successfully!");
