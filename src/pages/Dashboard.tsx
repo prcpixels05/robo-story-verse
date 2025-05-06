@@ -27,6 +27,11 @@ import { Toggle } from "@/components/ui/toggle";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import DashboardHeader from "@/components/DashboardHeader";
 import { useUser } from "@/context/UserContext";
+import StoryCard from "@/components/StoryCard";
+import { Card, CardTitle } from "@/components/ui/card";
+import { Command, CommandInput, CommandList, CommandGroup, CommandItem } from "@/components/ui/command";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import StorySuggestion from "@/components/StorySuggestion";
 
 // Mock data - would come from API in real app
 const suggestions = [

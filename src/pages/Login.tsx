@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Google } from "lucide-react";
+import { BookOpen, User } from "lucide-react";
 import Footer from "@/components/Footer";
 import AuthForm from "@/components/AuthForm";
 import { toast } from "sonner";
@@ -71,7 +71,7 @@ const Login = () => {
         </div>
         
         <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg animate-fade-in">
-          <AuthForm onLogin={handleLogin} isLoading={isLoading} />
+          <AuthForm onLogin={handleLogin} />
           
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
@@ -89,7 +89,7 @@ const Login = () => {
             onClick={handleGoogleLogin}
             disabled={isLoading}
           >
-            <Google className="mr-2 h-5 w-5" />
+            <User className="mr-2 h-5 w-5" />
             Sign in with Google
           </Button>
           

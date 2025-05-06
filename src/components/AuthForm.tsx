@@ -10,13 +10,14 @@ interface AuthFormProps {
   onLogin?: (email: string, password: string) => void;
   onSignup?: (email: string, password: string, name: string) => void;
   isSignUp?: boolean;
+  isLoading?: boolean;
 }
 
 // Admin credentials - in a real app these would be stored securely on the server
 const ADMIN_EMAIL = "admin@stobo.ai";
 const ADMIN_PASSWORD = "admin123";
 
-const AuthForm = ({ onLogin, onSignup, isSignUp = false }: AuthFormProps) => {
+const AuthForm = ({ onLogin, onSignup, isSignUp = false, isLoading = false }: AuthFormProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -91,8 +92,12 @@ const AuthForm = ({ onLogin, onSignup, isSignUp = false }: AuthFormProps) => {
       <Button 
         type="submit" 
         className="w-full literary-button"
+        disabled={isLoading}
       >
-        {isSignUp ? "Create Account" : "Sign In"}
+        {isLoading ? 
+          "Loading..." : 
+          (isSignUp ? "Create Account" : "Sign In")
+        }
       </Button>
     </form>
   );
