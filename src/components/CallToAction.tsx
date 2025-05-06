@@ -1,8 +1,10 @@
 
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CallToAction = () => {
+  const navigate = useNavigate();
+  
   return (
     <section className="py-16 bg-literary-primary text-white">
       <div className="container mx-auto px-4">
@@ -14,9 +16,9 @@ const CallToAction = () => {
           </p>
           <Button 
             className="bg-white text-literary-primary hover:bg-literary-accent hover:text-literary-primary px-8 py-3 rounded-lg text-lg font-medium transition-all duration-300"
-            asChild
+            onClick={() => navigate("/signup")}
           >
-            <Link to="/signup">Get Started For Free</Link>
+            Get Started For Free
           </Button>
         </div>
       </div>

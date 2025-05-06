@@ -1,9 +1,11 @@
 
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BookOpen, Headphones, BookText } from "lucide-react";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative overflow-hidden py-16 md:py-24">
       {/* Background gradient */}
@@ -25,17 +27,20 @@ const Hero = () => {
               Discover insights, analysis, and the beauty of storytelling in a whole new way.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button className="bg-literary-primary hover:bg-literary-secondary text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2" asChild>
-                <Link to="/signup">
-                  <BookOpen className="h-5 w-5" />
-                  Start Reading
-                </Link>
+              <Button 
+                className="bg-literary-primary hover:bg-literary-secondary text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2" 
+                onClick={() => navigate("/signup")}
+              >
+                <BookOpen className="h-5 w-5" />
+                Start Reading
               </Button>
-              <Button variant="outline" className="border-literary-primary text-literary-primary hover:bg-literary-primary hover:text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2" asChild>
-                <Link to="/login">
-                  <Headphones className="h-5 w-5" />
-                  Listen Now
-                </Link>
+              <Button 
+                variant="outline" 
+                className="border-literary-primary text-literary-primary hover:bg-literary-primary hover:text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2" 
+                onClick={() => navigate("/login")}
+              >
+                <Headphones className="h-5 w-5" />
+                Listen Now
               </Button>
             </div>
           </div>
