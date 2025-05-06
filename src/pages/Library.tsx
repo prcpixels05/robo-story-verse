@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Home, Library, History, User, LogOut, Search } from "lucide-react";
+import { BookOpen, Home, History, User, LogOut, Search } from "lucide-react";
 import { SidebarProvider, Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarFooter } from "@/components/ui/sidebar";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -66,7 +66,7 @@ const collections = [
   }
 ];
 
-const Library = () => {
+const LibraryPage = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [activeView, setActiveView] = useState<'saved' | 'collections'>('saved');
   const userName = "Reader"; // This would come from user profile/auth in a real app
@@ -81,7 +81,7 @@ const Library = () => {
       <SidebarProvider defaultOpen={true}>
         <div className="flex w-full min-h-screen bg-literary-light dark:bg-literary-dark">
           {/* Sidebar for desktop */}
-          <Sidebar className="hidden md:flex">
+          <Sidebar>
             <SidebarHeader className="p-4 border-b">
               <Link to="/" className="flex items-center gap-2">
                 <BookOpen className="h-6 w-6 text-literary-primary" />
@@ -101,7 +101,7 @@ const Library = () => {
                 <SidebarMenuItem>
                   <SidebarMenuButton asChild tooltip="My Library">
                     <Link to="/library" className="flex items-center gap-3">
-                      <Library className="h-5 w-5 text-literary-primary" />
+                      <BookOpen className="h-5 w-5 text-literary-primary" />
                       <span className="font-medium text-literary-primary">My Library</span>
                     </Link>
                   </SidebarMenuButton>
@@ -158,7 +158,7 @@ const Library = () => {
                       <span className="text-sm">Home</span>
                     </Link>
                     <Link to="/library" className="flex items-center gap-2 p-2 bg-gray-100 dark:bg-gray-800 rounded-md">
-                      <Library className="h-4 w-4 text-literary-primary" />
+                      <BookOpen className="h-4 w-4 text-literary-primary" />
                       <span className="text-sm font-medium text-literary-primary">My Library</span>
                     </Link>
                     <Link to="/history" className="flex items-center gap-2 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md">
@@ -258,4 +258,4 @@ const Library = () => {
   );
 };
 
-export default Library;
+export default LibraryPage;
