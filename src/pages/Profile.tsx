@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,12 +9,17 @@ import { BookOpen, Mail, User, UserCog } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import Footer from "@/components/Footer";
+import ProfileImageUploader from "@/components/ProfileImageUploader";
+import { useUser } from "@/context/UserContext";
 
 const Profile = () => {
+  const { user, updateUser } = useUser();
+  
   const [userData, setUserData] = useState({
-    name: "Reader",
-    email: "reader@example.com",
-    bio: "Avid book lover and literary enthusiast.",
+    name: user.name,
+    email: user.email,
+    bio: user.bio,
+    profileImage: user.profileImage,
     preferences: {
       genres: ["Fiction", "Fantasy", "Mystery"],
       authors: ["Jane Austen", "George Orwell", "J.K. Rowling"],
@@ -29,6 +33,22 @@ const Profile = () => {
     bio: userData.bio,
   });
 
+  // Update the form data when user context changes
+  useEffect(() => {
+    setFormData({
+      name: user.name,
+      email: user.email,
+      bio: user.bio,
+    });
+    setUserData(prev => ({
+      ...prev,
+      name: user.name,
+      email: user.email,
+      bio: user.bio,
+      profileImage: user.profileImage
+    }));
+  }, [user]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -38,6 +58,7 @@ const Profile = () => {
   };
 
   const handleSave = () => {
+    // Update local state
     setUserData(prev => ({
       ...prev,
       name: formData.name,
@@ -45,8 +66,27 @@ const Profile = () => {
       bio: formData.bio,
     }));
     
+    // Update global context
+    updateUser({
+      name: formData.name,
+      email: formData.email,
+      bio: formData.bio,
+    });
+    
     toast("Profile updated successfully", {
       description: "Your profile information has been saved.",
+    });
+  };
+
+  const handleProfileImageChange = (imageUrl: string) => {
+    setUserData(prev => ({
+      ...prev,
+      profileImage: imageUrl
+    }));
+    
+    // Update global context
+    updateUser({
+      profileImage: imageUrl
     });
   };
 
@@ -64,12 +104,11 @@ const Profile = () => {
               <Card className="shadow-md">
                 <CardHeader className="text-center">
                   <div className="flex justify-center mb-4">
-                    <Avatar className="h-24 w-24 border-2 border-literary-accent">
-                      <AvatarImage src="/placeholder.svg" alt={userData.name} />
-                      <AvatarFallback className="bg-literary-secondary text-white text-xl">
-                        {userData.name.charAt(0)}
-                      </AvatarFallback>
-                    </Avatar>
+                    <ProfileImageUploader
+                      currentImage={userData.profileImage}
+                      fallbackText={userData.name.charAt(0)}
+                      onImageChange={handleProfileImageChange}
+                    />
                   </div>
                   <CardTitle className="text-2xl font-serif">{userData.name}</CardTitle>
                   <CardDescription className="flex items-center justify-center gap-1 text-gray-600 dark:text-gray-300">

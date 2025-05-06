@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { 
@@ -9,7 +8,9 @@ import {
   User, 
   LogOut, 
   Search,
-  Play
+  Play,
+  Moon,
+  Sun
 } from "lucide-react";
 import { 
   SidebarProvider, 
@@ -22,23 +23,10 @@ import {
   SidebarFooter
 } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem, 
-  CarouselNext, 
-  CarouselPrevious 
-} from "@/components/ui/carousel";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { CommandInput, CommandList, CommandGroup, CommandItem, Command } from "@/components/ui/command";
 import { Toggle } from "@/components/ui/toggle";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import DashboardHeader from "@/components/DashboardHeader";
-import StorySuggestion from "@/components/StorySuggestion";
-import StoryCard from "@/components/StoryCard";
-import { Moon, Sun } from "lucide-react";
+import { useUser } from "@/context/UserContext";
 
 // Mock data - would come from API in real app
 const suggestions = [
@@ -228,12 +216,12 @@ const recommendations = [
 ];
 
 const Dashboard = () => {
+  const { user, logout } = useUser();
   const [searchQuery, setSearchQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [greeting, setGreeting] = useState("");
-  const userName = "Reader"; // Would come from authentication in a real app
 
   useEffect(() => {
     // Set greeting based on time of day
@@ -275,6 +263,11 @@ const Dashboard = () => {
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
     document.documentElement.classList.toggle('dark');
+  };
+
+  const handleLogout = () => {
+    logout();
+    // In a real app with proper routing, you would redirect to login page here
   };
 
   return (
@@ -327,7 +320,7 @@ const Dashboard = () => {
             </SidebarContent>
             <SidebarFooter className="mt-auto border-t p-4">
               <SidebarMenuButton asChild tooltip="Logout">
-                <Link to="/login" className="flex items-center gap-3 text-red-500">
+                <Link to="/login" className="flex items-center gap-3 text-red-500" onClick={handleLogout}>
                   <LogOut className="h-5 w-5" />
                   <span>Logout</span>
                 </Link>
@@ -351,7 +344,7 @@ const Dashboard = () => {
                 </PopoverTrigger>
                 <PopoverContent className="w-56 p-0">
                   <div className="border-b p-2">
-                    <p className="text-sm font-medium">{userName}</p>
+                    <p className="text-sm font-medium">{user.name}</p>
                   </div>
                   <div className="p-2">
                     <Link to="/dashboard" className="flex items-center gap-2 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md">
@@ -371,7 +364,7 @@ const Dashboard = () => {
                       <span className="text-sm">Profile</span>
                     </Link>
                     <div className="border-t mt-2 pt-2">
-                      <Link to="/login" className="flex items-center gap-2 p-2 text-red-500 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md">
+                      <Link to="/login" className="flex items-center gap-2 p-2 text-red-500 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md" onClick={handleLogout}>
                         <LogOut className="h-4 w-4" />
                         <span className="text-sm">Logout</span>
                       </Link>
@@ -395,7 +388,7 @@ const Dashboard = () => {
               </div>
 
               {/* Welcome header */}
-              <DashboardHeader greeting={greeting} userName={userName} />
+              <DashboardHeader greeting={greeting} />
 
               {/* Search bar with autocomplete */}
               <div className="relative max-w-3xl mx-auto mt-8 mb-12">
