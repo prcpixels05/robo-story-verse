@@ -55,11 +55,7 @@ const Hero = () => {
               />
               <div className="absolute -bottom-4 -right-4 bg-white px-6 py-3 rounded-lg shadow-lg">
                 <div className="flex items-center gap-3">
-                  <img 
-                    src="/lovable-uploads/cd4795cc-fee1-47a8-9d0f-3dff4c034a93.png" 
-                    alt="Robot Narrator" 
-                    className="w-8 h-8 object-contain"
-                  />
+                  <BookText className="h-5 w-5 text-literary-primary" />
                   <p className="text-sm font-medium">
                     Narrating the world's best stories
                   </p>
