@@ -1,26 +1,51 @@
-# Welcome to your Lovable project
 
-## Project info
+# Stobo.ai - AI-Powered Literary Experience
+
+## About Stobo.ai
+
+Stobo.ai is an innovative platform that combines the beauty of literature with cutting-edge AI technology to create an immersive storytelling experience. The platform allows users to explore classic and modern literature through AI narration, gaining deeper insights and analysis while enjoying timeless stories.
+
+### Key Features
+
+- **AI Narration**: Listen to stories narrated by our AI companion with realistic voice and emotion
+- **Classic Literature Collection**: Explore timeless works from renowned authors with expert analysis
+- **Story Insights**: Gain deeper understanding with AI-generated summaries, themes, and moral lessons
+- **Personalized Experience**: Get recommendations based on your reading preferences and history
+- **User Library**: Save your favorite stories and track your reading progress
+- **Reading History**: Keep track of what you've read and where you left off
+
+## User Journey
+
+1. **Sign Up/Login**: Create an account or log in using email/password or Google authentication
+2. **Dashboard**: Access your personalized dashboard with reading suggestions and progress tracking
+3. **Library**: Browse and save your favorite stories in your personal library
+4. **History**: Review your reading history and continue where you left off
+5. **Profile**: Customize your profile with a profile picture and personal information
+
+## Technical Details
+
+This project is built with:
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui components
+- Tailwind CSS
+
+## Project Access
 
 **URL**: https://lovable.dev/projects/b539b845-9bc6-423f-914e-94d77f9cfe01
 
-## How can I edit this code?
+## Development
 
-There are several ways of editing your application.
-
-**Use Lovable**
+### Using Lovable
 
 Simply visit the [Lovable Project](https://lovable.dev/projects/b539b845-9bc6-423f-914e-94d77f9cfe01) and start prompting.
-
 Changes made via Lovable will be committed automatically to this repo.
 
-**Use your preferred IDE**
+### Local Development
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+If you want to work locally using your own IDE, you can clone this repo and push changes:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
@@ -36,13 +61,13 @@ npm i
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### GitHub Editing
 
 - Navigate to the desired file(s).
 - Click the "Edit" button (pencil icon) at the top right of the file view.
 - Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
+### Using GitHub Codespaces
 
 - Navigate to the main page of your repository.
 - Click on the "Code" button (green button) near the top right.
@@ -50,23 +75,11 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+## Deployment
 
-This project is built with:
+To deploy this project, open [Lovable](https://lovable.dev/projects/b539b845-9bc6-423f-914e-94d77f9cfe01) and click on Share -> Publish.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/b539b845-9bc6-423f-914e-94d77f9cfe01) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
+## Custom Domain
 
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
