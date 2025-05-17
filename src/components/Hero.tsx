@@ -54,10 +54,17 @@ const Hero = () => {
                 className="w-full h-auto rounded-lg shadow-2xl object-cover"
               />
               <div className="absolute -bottom-4 -right-4 bg-white px-6 py-3 rounded-lg shadow-lg">
-                <p className="text-sm font-medium flex items-center gap-2">
-                  <BookText className="h-4 w-4 text-literary-primary" />
-                  Narrating the world's best stories
-                </p>
+                <div className="flex flex-col items-center gap-2">
+                  <img 
+                    src="/images/robot-narrator.png" 
+                    alt="Robot Narrator Icon" 
+                    className="w-12 h-12 object-contain"
+                  />
+                  <p className="text-sm font-medium flex items-center gap-2">
+                    <BookText className="h-4 w-4 text-literary-primary" />
+                    Narrating the world's best stories
+                  </p>
+                </div>
               </div>
             </div>
           </div>
