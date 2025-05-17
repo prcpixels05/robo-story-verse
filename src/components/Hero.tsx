@@ -54,11 +54,11 @@ const Hero = () => {
                 className="w-full h-auto rounded-lg shadow-2xl object-cover"
               />
               <div className="absolute -bottom-4 -right-4 bg-white px-6 py-3 rounded-lg shadow-lg">
-                <div className="flex flex-col items-center gap-2">
+                <div className="flex items-center gap-3">
                   <img 
-                    src="/images/robot-narrator.png" 
-                    alt="Robot Narrator Icon" 
-                    className="w-12 h-12 object-contain"
+                    src="https://chatgpt.com/s/m_68285f9fb5308191bc69de30e7710f85" 
+                    alt="Robot Narrator" 
+                    className="w-10 h-10 object-contain rounded-full"
                   />
                   <p className="text-sm font-medium flex items-center gap-2">
                     <BookText className="h-4 w-4 text-literary-primary" />
